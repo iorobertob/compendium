@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Boletin BC [v0.6]</title>
+
+    <link href="../../static/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- CSS for table sort icons -->
+    <link rel="stylesheet" type="text/css" href="../../static/css/dataTable.css">
+    <link rel="stylesheet" href="../../static/css/io_table_format.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/css/pickaday.css">
+    <!-- <link rel="stylesheet" href="../../static/css/site.css"> -->
+  </head>
+
+
+  <style>
+
+  </style>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Boletin BC</a>
+          <div id ="navbar" class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/filteredSearch">Busqueda Judicial</a></li>
+              <li><a href="/goToMyExpedientes">Mis Expedientes</a></li>
+              <li><a href="/about">Acerca</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-right">
+              <li>
+                <form class="navbar-form pull-left" action="/showCase" method="post">
+                  <input class="span2"    type="text"       name='inputCase'     placeholder="nombre / expediente" required>
+                  <input type="hidden" name="formId" value="Keyword">
+                  <button href="#signUp"  type="submit"     class="btn" >Buscar Expediente</button>
+                </form>
+              </li>
+
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black; color:white;">
+          <a class="dropdown-item" href="/profile" style="color: white; margin-left: 10px">Perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/config" style="color: white; margin-left: 10px">Configuracion</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+
+              <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Cerrar Sesion</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-group" role="form" action="/profile" method="post">
+
+    <div class="container">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" style="background-image: url(../../static/Uploads/geminis32_3.jpg);border-radius:3px;">
+        <h1 class="row title"  style='font-weight: lighter; color:white'><div onclick="turnTextIntoInputField(this);" >{{data[0][1]}}</div></h1>
+        <input id="nameTitle" name="nameTitle" type="hidden" value="{{data[0][1]}}" />
+        <h3 class="row title" style='font-weight: lighter; color:white'>{{mail}}</h3>
+      </div>
+    </div>
+
+
+    <!-- <form class="form-group" role="form" action="/saveProfile" method="post"> -->
+
+    <div class="container">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" style="background-color:#F5F5F5 ;border-radius:3px;">
+        <p class="row title" style='font-weight: lighter; color:black; font-size: 20pt'>Perfil</p>
+        <hr>
+        <p/>
+
+
+
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Correo Electrónico</p>
+        <p data-editable id="emailField"   >
+          <input type="text" name='mail' value="{{mail}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Ubicación</p>
+          <input id="location1" name="location1" type="hidden" value="{{data[0][6]}}" />
+          <div id="googleMap1" style="width:100%;height:400px;"></div>
+
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Fecha de Nacimiento</p>
+
+        <div class="form-group">
+        <p>
+          <input type="text" name="birthday" id="datepicker" value="{{data[0][7]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        </div>
+
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Ocupación</p>
+        <p data-editable id="ocupacionField"   >
+          <input type="text" name='activity' value="{{data[0][8]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+
+      </div>
+
+      <div class="hero-unit" style="background-color:#F5F5F5 ;border-radius:3px;">
+        <p class="row title" style='font-weight: lighter; color:black; font-size: 20pt'>Persona Moral</p>
+        <hr>
+        <p/>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Razón/Denominación social</p>
+        <p data-editable id="giroField"   >
+          <input type="text" name='companyName' value="{{data[0][9]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Giro</p>
+        <p data-editable id="emailField"   >
+          <input type="text" name='companyType' value="{{data[0][10]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Correo Electrónico</p>
+        <p data-editable id="mailMoralField"   >
+          <input type="text" name='companyMail' value="{{data[0][11]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">Ubicación</p>
+          <input id="location2" name="location2" type="hidden" value="{{data[0][12]}}" />
+         <div id="googleMap2" style="width:100%;height:400px;"></div>
+
+        <hr>
+        <p id="nameLabel" style = "font-size: 10pt; color: dimgrey; margin:0;">RFC</p>
+        <p data-editable id="RFCField"   >
+          <input type="text" name='companyRFC' value="{{data[0][13]}}" style = "font-size: 15pt; cursor: pointer; font-weight:lighter;"/>
+        </p>
+        <hr>
+
+      </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="signup"></label>
+            <div class="col-md-4">
+              <button id = "btnSignUp" name="signup" class = "btn btn-primary btn-large">Guardar!</button>
+            </div>
+          </div>
+
+
+    </div>
+
+  </form>
+
+
+    <footer style="margin-top:80px ; margin-left: 80px">
+        <h5 class="brand" >&copy; IO Patterns 2017</h5>
+    </footer>
+    <!-- ===================================== Le javascript =========================== -->
+    <!-- Placed at the end of the document so the pages load faster-->
+    <script src="../../static/assets/js/jquery.js"></script>
+    <script src="../../static/assets/js/bootstrap-transition.js"></script>
+    <script src="../../static/assets/js/bootstrap-collapse.js"></script>
+    <script src="../../static/assets/js/bootstrap-alert.js"></script>
+    <script src="../../static/assets/js/bootstrap-modal.js"></script>
+    <script src="../../static/assets/js/bootstrap-dropdown.js"></script>
+    <script src="../../static/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../../static/assets/js/bootstrap-tab.js"></script>
+    <script src="../../static/assets/js/bootstrap-tooltip.js"></script>
+    <script src="../../static/assets/js/bootstrap-popover.js"></script>
+    <script src="../../static/assets/js/bootstrap-button.js"></script>
+    <script src="../../static/assets/js/bootstrap-collapse.js"></script>
+    <script src="../../static/assets/js/bootstrap-carousel.js"></script>
+    <script src="../../static/assets/js/bootstrap-typeahead.js"></script>
+    <script src="../../static/js/jquery.dataTables.js"></script>
+    <!-- To debbug upgrade for jquery-->
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script src="../../static/js/pickaday.js"></script>
+
+    <!-- This script is used to configure the Date Picker interface  -->
+    <script>
+      var picker = new Pikaday(
+      {
+          field: document.getElementById('datepicker'),
+          firstDay: 1,
+          minDate: new Date(1918, 12, 31),
+          maxDate: new Date(2020, 12, 31),
+          yearRange: [1918,2020],
+          onSelect: function(date)
+          {
+            console.log(picker.toString());
+          }
+      });
+    </script>
+
+    <!-- This script is used to turn the static text in to an input field dynamicaly  -->
+    <script>
+      function turnTextIntoInputField(link)
+      {
+
+        var $el = $(link);
+
+        var $input = $("<input name ='nameTitle' style='font-size: 35pt; font-weight: lighter; color:black'/>").val( $el.text() );
+        $el.replaceWith( $input );
+
+        var save = function()
+        {
+          var $p   = $('<p data-editable />').text( $input.val() );
+          $input.replaceWith( $p );
+
+          $("#nameTitle").val($input.val());
+        };
+
+        /**
+          We're defining the callback with `one`, because we know that
+          the element will be gone just after that, and we don't want
+          any callbacks leftovers take memory.
+          Next time `p` turns into `input` this single callback
+          will be applied again.
+        */
+        $input.one('blur', save).focus();
+
+      }
+    </script>
+
+
+    <!-- This scripts are used to configure the Google Maps API.  -->
+    <script>
+              function myMap()
+              {
+
+                var Tijuana    = new google.maps.LatLng(32.5149,-117.0382);
+
+                var location1 = document.getElementById('location1').value.replace(/[()]/g, ''); ;
+                var location2 = document.getElementById('location2').value.replace(/[()]/g, ''); ;
+
+                splitLocation1 = location1.split(',');
+                splitLocation2 = location2.split(',');
+
+
+
+
+                var Location1 = new google.maps.LatLng(parseFloat(splitLocation1[0]), parseFloat(splitLocation1[1]));
+                var Location2 = new google.maps.LatLng(parseFloat(splitLocation2[0]), parseFloat(splitLocation2[1]));
+
+                var mapCanvas1  = document.getElementById("googleMap1");
+                var mapCanvas2  = document.getElementById("googleMap2");
+
+                if (splitLocation1 != "None")
+                {
+                   var mapOptions1  = {center: Location1, zoom: 10};
+                }
+                else
+                {
+                    var mapOptions1  = {center: Tijuana, zoom: 10};
+                    Location1 = Tijuana;
+                }
+
+                if (splitLocation2 != "None")
+                {
+                    var mapOptions2  = {center: Location2, zoom: 10};
+                }
+                else
+                {
+                    Location2 = Tijuana
+                    var mapOptions2  = {center: Tijuana, zoom: 10};
+                }
+
+
+                var map1        = new google.maps.Map(mapCanvas1, mapOptions1);
+                var map2        = new google.maps.Map(mapCanvas2, mapOptions2);
+
+                var marker1     = new google.maps.Marker({position  : Location1,
+                                                          draggable : true});
+                var marker2     = new google.maps.Marker({position  : Location2,
+                                                          draggable : true});
+
+                marker1.setMap(map1);
+                marker2.setMap(map2);
+
+                google.maps.event.addListener(marker1, 'dragend', function(event)
+                {
+                  placeMarker1(event.latLng);
+                });
+
+                google.maps.event.addListener(marker2, 'dragend', function(event)
+                {
+                  placeMarker2(event.latLng);
+                });
+              }
+
+              function placeMarker1 (location)
+              {
+                $("#location1").val(location);
+                console.log(location.lat.value);
+              }
+              function placeMarker2 (location)
+              {
+                $("#location2").val(location);
+                console.log(location.lat.value);
+              }
+    </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHUwWQby9NhuMLK7E-H9RVB6jTCVtVkL8&callback=myMap">
+    </script>
+
+
+  </body>
+
+</html>

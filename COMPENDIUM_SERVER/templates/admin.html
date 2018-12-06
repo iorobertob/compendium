@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Boletin BC - Sign Up Form [demo-v0.1]</title>
+
+    <link href="../static/assets/css/bootstrap.css" rel="stylesheet">
+    
+    <link href="../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+ 
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../static/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../static/assets/ico/favicon.png">
+
+
+
+ <!--  <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style> -->
+
+  </head>
+
+  <body>
+
+
+
+                 <!-- NAVBAR
+================================================== -->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Boletin BC</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+            <!-- navbar
+================================================== -->
+
+
+   <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" style="background-image: url(/../static/Uploads/Shibori.jpg);background-size:100%">
+<!-- <div class="well"> -->
+          <!-- <form class="form-group" role="form" action="/signUp" method="post"  > -->
+
+            <!-- Form Name -->
+            <legend style="color:white;">Admin.</legend>
+
+            <!-- Parse Link input-->
+            <form action="/parseFromLink" method="post">
+              <label  for="txtTitle" style="color:white;">Parse link</label>  
+              <div>
+                <div>
+                  <input    name  = "inputLink"
+                            type  = "text" 
+                            placeholder="link o .html" 
+                            class = "form-control input-md"> 
+                  <button   class = "btn btn-primary btn-medium" 
+                            style = 'width:100px;'>Parse!
+                  </button>
+                  <checkbox class="checkbox" name  ='check1'>
+                    <label style = 'color:white;'><input  
+                                  type  ="checkbox" 
+                                  value =""
+                                  >From file
+                    </label>
+                  </checkbox>
+
+                </div>
+              </div>
+            </form>
+
+            <!-- SQL Query input-->
+            <form action="/sqlCommand" method="post">
+              <label  for="txtTitle" style="color:white;">MysQL Query</label> 
+              <div>
+                <div> 
+                  <input  name="inputQuery" 
+                          type="text" 
+                          placeholder="" 
+                          class="form-control input-md"> 
+                  <button class = "btn btn-primary btn-medium"style='width:100px;' >Execute!</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Otro input-->
+            <div class="form-group">
+              <label  for="txtTitle" style="color:white;">Kitas Dalykas</label>  
+              <div>
+                <div> 
+                  <input name="inputPasswordSignUp" type="password" placeholder="" class="form-control input-md"> 
+                  <button class = "btn btn-primary btn-medium"style='width:100px;' >Otra cosa!</button>
+                </div>
+              </div>
+            </div>
+
+
+      </div>
+      </div>
+
+      <footer style="margin-top:80px ; margin-left: 80px"">
+        <h5 class="brand" >&copy; IO Patterns 2017</h5>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/assets/js/jquery.js"></script>
+    <script src="../static/js/signUp.js"></script>
+
+    
+
+  </body>
+</html>
+</html>

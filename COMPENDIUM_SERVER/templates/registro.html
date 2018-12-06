@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Boletin BC - Forma de Registro [v0.7]</title>
+    <link href="../../static/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+   </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Boletin BC</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Inicio</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li>
+                 <form    class="navbar-form pull-right" action="/validateLogin" method="post">
+                  <input class="span2"    type="text"       name='inputEmail'     placeholder="Correo-Electrónico" required>
+                  <input class="span2"    type="password"   name='inputPassword' placeholder="Contraseña" required >
+                  <button href="#signUp"  type="submit"     class="btn" >Iniciar Sesion</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="container">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" style="background-image: url(/../static/Uploads/blue_abstract_2.jpg);border-radius: 3px; background-size:100%">
+        <form class="form-group" role="form" action="/signUp" method="post">
+          <!-- Form Name -->
+          <legend style="color:white;">Registro</legend>
+          <h4 class="brand" style="color:red; font-weight: 300 ;"> {{error}}</h4>
+          <!-- Name input-->
+          <div class="form-group">
+            <label  class="col-md-4 control-label" for="txtTitle" style="color:white;">Nombre</label>
+            <div class="col-md-4">
+            <input id="iName" name="inputName" type="text" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+          <!-- Email input-->
+          <div class="form-group">
+            <label  class="col-md-4 control-label" for="txtTitle" style="color:white;">Correo Electrónico</label>
+            <div class="col-md-4">
+            <input name="inputEmailSignUp" type="email" placeholder="ejemplo@dominio.com" class="form-control input-md" required="">
+            </div>
+          </div>
+          <!-- Password input-->
+          <div class="form-group">
+            <label  class="col-md-4 control-label" for="txtTitle" style="color:white;">Contraseña</label>
+            <div class="col-md-4">
+            <input name="inputPasswordSignUp" type="password" placeholder="" class="form-control input-md" required="">
+            </div>
+          </div>
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="signup"></label>
+            <div class="col-md-4">
+              <button id = "btnSignUp" name="signup" class = "btn btn-primary btn-large">Registrarse!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <footer>
+        <p>© IO Patterns 2017</p>
+      </footer>
+      </div>
+    </div>
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="../../static/js/signUp.js"></script> -->
+    <script src="../../static/assets/js/jquery.js"></script>
+    <script src="../../static/assets/js/bootstrap-transition.js"></script>
+    <script src="../../static/assets/js/bootstrap-collapse.js"></script>
+    <!-- To debbug upgrade for jquery
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script> -->
+    <script>
+    </script>
+  </body>
+</html>
+</html>

@@ -1,0 +1,94 @@
+/*table.tb1{
+  border-collapse: separate;
+  border-spacing: 0;
+}
+table.tb1 th,
+table.tb1 td {
+  padding: 10px 15px;
+}
+table.tb1 thead {
+  background-color:#395870;
+  color: #f0f;
+}
+table.tb1 tbody tr:nth-child(even) {
+  background-color:#f0f0f2;
+}
+table.tb1 td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+table.tb1 td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+
+*/
+
+
+
+table.th1 {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+table.th1 th,
+table.th1 td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+table.th1 thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+table.th1 th:first-child {
+  border-top-left-radius: 5px;
+  text-align: left;
+}
+table.th1 th:last-child {
+  border-top-right-radius: 5px;
+}
+table.th1 tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+table.th1 td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+table.th1 td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+.book-title {
+  color: #395870;
+  display: block;
+}
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
+}
+.item-stock,
+.item-qty {
+  text-align: center;
+}
+.item-price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
+}
+table.th1 tfoot {
+  text-align: right;
+}
+table.th1 tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+table.th1 tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+table.th1 tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}

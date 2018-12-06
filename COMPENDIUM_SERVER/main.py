@@ -248,6 +248,20 @@ def validateLogin():
         # return render_template('loginerror.html',error = 'Unauthorized Access')
         # TODO: what'up with this in the return?
 
+# Fetch users data
+@app.route('/getProfiles',             methods=['GET'])
+def getProfiles():
+
+    database.connect()
+
+    data = database.execute('select * from user_info')
+
+    database.disconnect()
+
+    return json.dumps(data)
+
+
+
 # Sign UP button calls POST
 @app.route('/signUp',               methods=['POST','GET'])
 def signUp():

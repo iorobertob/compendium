@@ -17,6 +17,7 @@
     "react-native-elements": "^1.0.0-beta7",
     "react-native-maps": "^0.22.1",
     "react-navigation": "^3.0.2",
+    "react-navigation-drawer": "^1.0.4",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1"
   },

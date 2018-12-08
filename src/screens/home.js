@@ -1,11 +1,10 @@
-import React        from 'react';
-import MyButton     from '../components/button';
-import { StyleSheet, Text, View }       from 'react-native';
-import { connect}   from 'react-redux';
-import { changeText} from '../store/action';
-import {createStackNavigator} from 'react-navigation';
-import { MapView } from 'expo';
-import { Icon, SearchBar } from 'react-native-elements'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import { connect}   from 'react-redux'
+import { changeText} from '../store/action'
+import { MapView } from 'expo'
+import Search from '../components/search-bar'
+import MenuButton from '../components/menu-button'
 
 class Home extends React.Component {
 
@@ -13,41 +12,15 @@ class Home extends React.Component {
       title: '',
       headerTransparent:true,
       headerRight:(
-        
-        <View style={{flexDirection:'row', 
-                      alignItems:'center'}}>
-          <SearchBar
-            leftIconContainerStyle={{backgroundColor:'white',
-                                    paddingLeft:10,
-                                    marginLeft:0,
-                                    marginRight:0}}
-            rightIconContainerStyle={{backgroundColor:'white',
-                                    paddingRight:10,
-                                    marginRight:0, 
-                                    marginLeft:0}}
-            containerStyle={{backgroundColor:'transparent',
-                              borderWidth:0,
-                              borderBottomColor: 'transparent',
-                              borderTopColor: 'transparent'}}
-            inputStyle = {{backgroundColor:'white',
-                          marginLeft: 0}}
-            lightTheme
-            round
-            searchIcon={{ size: 24 }}
-            placeholder='Type Here...' />
-          <Icon reverse color='white' reverseColor='gray' type='material-community' name='tune' />
-        </View>
+        <Search/>
       ),
       headerLeft:(
-        <View><Icon reverse color='white' reverseColor='gray' type='material-community' name='menu' /></View>
-      )
+        <MenuButton/>
+      ),
   };
 
-
   render() {
-
     return (
-        
         <View style={styles.container}>
           <MapView
             style={{ flex: 1 }}
@@ -57,11 +30,6 @@ class Home extends React.Component {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}/>
-          {/* <Text style={{...styles.text, top:0}}>Filter</Text> */}
-          <View style={{...styles.text}} >
-              {/* <Icon type='material-community' name='tune' /> */}
-          </View>
-          
         </View>
  
     );
@@ -79,22 +47,19 @@ const styles = StyleSheet.create({
     width: "auto",
     height: 20,
     paddingRight: 5,
-  }
+  },
 })
 
-
-
 const mapStateToProps = (state) => {
-  return{
-     text:state.events.text
+  return {
+     text:state.events.text,
   };
 }
 
-
 const mapDispatchToProps = dispatch => { 
   return {
-	changeTextProp: (text) => dispatch(changeText(text))
-}}
-
+	  changeTextProp: (text) => dispatch(changeText(text)),
+  }
+}
 
 export default connect (mapStateToProps,mapDispatchToProps)(Home)

@@ -35,8 +35,29 @@
 
       
     </style>
+
+    <style  type="text/css" >
+    /* For mobile phones: */
+    /* For mobile phones: */
+      h1.compendium {
+          font-size: 35px;
+      }
+        
+      @media  (min-width: 260px) {
+        /* For tablets: */
+        h1.compendium {font-size: 50px;}
+      }
+      @media (min-width: 800px) {
+        /* For desktop: */
+        h1.compendium {font-size: 200px;}
+      } 
+
+    </style>
+
+
+
     <link href="../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../static/css/compendium.css" rel="stylesheet">
+    <!-- <link href="../static/css/compendium.css" rel="stylesheet"> -->
   </head>
   <body >
     <div class="bg">
@@ -48,12 +69,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class=" brand"  style=" position: relative;
+          <h1 href="/" class="compendium"  style=" position: relative;
                                             transform: translate(0%, 400%); 
                                             font-weight: lighter; 
                                             color:lightgray; 
-                                            font-size: 6vw;
-                                            font-family:'raleway',sans-serif;" >COMPENDIUM</a>
+                                            font-family:'raleway',sans-serif;" >COMPENDIUM</h1>
           <div style="  position: relative;
                         transform: translate(0%, 250%);">
                         <a  href="../static/share/test.apk" download>

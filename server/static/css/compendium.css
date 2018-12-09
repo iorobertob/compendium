@@ -1,13 +1,13 @@
 /* For mobile phones: */
 a.compendium {
     font-size: 35px;
-  }
+}
   
-  @media  screen and (min-width: 600px) {
+  @media  screen and (min-width: 700px) {
     /* For tablets: */
     a.compendium {font-size: 50px;}
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 800px) {
     /* For desktop: */
     a.compendium {font-size: 100px;}
   }

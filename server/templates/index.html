@@ -40,16 +40,22 @@
     /* For mobile phones: */
     /* For mobile phones: */
       h1.compendium {
-          font-size: 35px;
+          font-size: 45px;
+	  transform: translate(0%, 150%);
       }
         
-      @media  (min-width: 260px) {
+      @media  (min-width: 460px) {
         /* For tablets: */
-        h1.compendium {font-size: 50px;}
+        h1.compendium {
+		font-size: 70px;
+		transform: translate(0%, 200%)}
+	
       }
       @media (min-width: 800px) {
         /* For desktop: */
-        h1.compendium {font-size: 200px;}
+        h1.compendium {
+		font-size: 150px;
+		transform: translate(0%, 400%)}
       } 
 
     </style>
@@ -70,7 +76,7 @@
             <span class="icon-bar"></span>
           </button>
           <h1 href="/" class="compendium"  style=" position: relative;
-                                            transform: translate(0%, 400%); 
+                                            
                                             font-weight: lighter; 
                                             color:lightgray; 
                                             font-family:'raleway',sans-serif;" >COMPENDIUM</h1>

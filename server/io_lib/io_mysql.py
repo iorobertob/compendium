@@ -11,11 +11,11 @@ CLOUDSQL_USER               = os.environ.get('CLOUDSQL_USER')
 CLOUDSQL_PASSWORD           = os.environ.get('CLOUDSQL_PASSWORD')
 
 # MySQL configurations
-db_username       = 'root'
-db_password       = 'password'
-db_dbname         = 'compendium'
+db_username       = 'iopaveqd_compendium'
+db_password       = 'compendium'
+db_dbname         = 'iopaveqd_compendium'
 hostname          = 'localhost'
-tablename         = 'userinfo'
+tablename         = 'user_info'
 #
 # resoluciones (
 # [0]  fecha_url,

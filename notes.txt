@@ -1,0 +1,5 @@
+mysql database
+name iopaveqd_compendium
+username iopaveqd_compendium
+passwrd compendium
+
